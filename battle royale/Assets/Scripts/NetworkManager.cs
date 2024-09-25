@@ -28,6 +28,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
+    [PunRPC]
     public void ChangeScene (string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);
@@ -37,8 +38,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public static NetworkManager instance;
     void Awake ()
     {
-    instance = this;
-    DontDestroyOnLoad(gameObject);
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
