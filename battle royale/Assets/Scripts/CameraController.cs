@@ -19,6 +19,13 @@ public class CameraController : MonoBehaviour
     private float rotY;
     private bool isSpectator;
     // Start is called before the first frame update
+
+    public void SetAsSpectator ()
+    {
+        isSpectator = true;
+        transform.parent = null;
+    }
+
     void Start()
     {
         // lock the cursor to the middle of the screen

@@ -12,11 +12,49 @@ public class GameManager : MonoBehaviourPun
     public PlayerController[] players;
     public Transform[] spawnPoints;
     public int alivePlayers;
+
+    public float postGameTime;
     
     private int playersInGame;
     
     // instance
     public static GameManager instance;
+
+    public PlayerController GetPlayer (GameObject playerObj)
+    {
+        foreach(PlayerController player in players)
+        {
+            if(player != null && player.gameObject == playerObj)
+            return player;
+        }
+        return null;
+    }
+
+    public PlayerController GetPlayer (int playerId)
+    {
+        foreach(PlayerController player in players)
+        {
+        if(player != null && player.id == playerId)
+            return player;
+        }
+        return null;
+    }
+
+    public void CheckWinCondition ()
+    {
+        if(alivePlayers == 1)
+        photonView.RPC("WinGame", RpcTarget.All, players.First(x => !x.dead).id);
+    }
+    [PunRPC]
+    void WinGame (int winningPlayer)
+    {
+        // set the UI win text
+        Invoke("GoBackToMenu", postGameTime);
+    }
+    void GoBackToMenu ()
+    {
+        NetworkManager.instance.ChangeScene("Menu");
+    }
 
     void Awake ()
     {

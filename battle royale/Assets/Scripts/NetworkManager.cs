@@ -14,6 +14,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     public int maxPlayers = 10;
 
+    public override void OnDisconnected(DisconnectCause)
+    {
+        PhotonNetwork.LoadLevel("Menu");
+    }
+
+    public override void OnPlayerLeftRoom (Player otherPlayer)
+    {
+        GameManager.instance.alivePlayers--;
+        GameUI.instance.UpdatePlayerInfoText();
+        if(PhotonNetwork.IsMasterClient)
+        {
+            GameManager.instance.CheckWinCondition();
+        }
+    }
+
     // attempts to create a room
     public void CreateRoom (string roomName)
     {
