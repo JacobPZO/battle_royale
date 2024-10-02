@@ -14,7 +14,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     public int maxPlayers = 10;
 
-    public override void OnDisconnected(DisconnectCause)
+    public override void OnDisconnected(DisconnectCause v)
     {
         PhotonNetwork.LoadLevel("Menu");
     }

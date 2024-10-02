@@ -502,7 +502,7 @@ MonoBehaviour:
   kills: 0
   dead: 0
   mr: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 7938135916563148441}
 --- !u!114 &1518047581540389793
 MonoBehaviour:
   m_ObjectHideFlags: 0
