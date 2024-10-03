@@ -116,8 +116,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         startGameButton.interactable = PhotonNetwork.IsMasterClient;
         // display all the players
         playerListText.text = "";
-        foreach(Player player in PhotonNetwork.PlayerList)
-        playerListText.text += player.NickName + "\n";
+        foreach (Player player in PhotonNetwork.PlayerList)
+            playerListText.text += player.NickName + "\n";
         // set the room info text
         roomInfoText.text = "<b>Room Name</b>\n" + PhotonNetwork.CurrentRoom.Name;
     }
