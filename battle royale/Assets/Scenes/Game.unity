@@ -4042,7 +4042,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8105823507113637417, guid: 265086ec6d2269043b34b90caec4f958, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 8170826489663469065, guid: 265086ec6d2269043b34b90caec4f958, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12704,7 +12704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66cb9e216f2edb458ca5b91c4e7622c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabLocation: 
+  playerPrefabLocation: Player
   players: []
   spawnPoints:
   - {fileID: 349571531}
